@@ -19,5 +19,14 @@ namespace Divendender.Models.Indicators
         // Navigation Property
         public Ticker Ticker { get; set; }
         public int TickerId { get; set; }
+
+        public RSI(DateTime time, decimal value)
+        {
+            Time = time;
+            Value = value; 
+        }
+
     }
+
+
 }

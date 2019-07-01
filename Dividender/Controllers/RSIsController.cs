@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Divendender.Models.Indicators;
 using Dividender.Data;
+using Dividender.Helpers;
 
 namespace Dividender.Views
 {
@@ -22,6 +23,9 @@ namespace Dividender.Views
         // GET: RSIs
         public async Task<IActionResult> Index()
         {
+            Helpers.Indicator rsi = new Helpers.Indicator();
+            ViewBag.RsiValue = await rsi.GetSymbolAsync("VYM");
+
             var applicationDbContext = _context.RSIs.Include(r => r.Ticker);
             return View(await applicationDbContext.ToListAsync());
         }
@@ -57,7 +61,7 @@ namespace Dividender.Views
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Time,Value,TickerId")] RSI rSI)
+        public async Task<IActionResult> Create([Bind("Id,Time,Value,TickerId")] Divendender.Models.Indicators.RSI rSI)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +95,7 @@ namespace Dividender.Views
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Time,Value,TickerId")] RSI rSI)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Time,Value,TickerId")] Divendender.Models.Indicators.RSI rSI)
         {
             if (id != rSI.Id)
             {

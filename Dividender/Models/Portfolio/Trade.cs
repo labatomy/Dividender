@@ -14,6 +14,7 @@ namespace Dividender.Models.Portfolio
 
         [DataType(DataType.Date)]
         [DisplayName("Purchased On")]
+        [DisplayFormat(DataFormatString = "{0:g}")]
         public DateTime PurchaseDate { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
@@ -22,15 +23,16 @@ namespace Dividender.Models.Portfolio
 
         [DataType(DataType.Date)]
         [DisplayName("Sold On")]
-        public DateTime SellDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:g}")]
+        public DateTime? SellDate { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         [DisplayName("Sell Price")]
-        public decimal SellPrice { get; set; }
+        public decimal? SellPrice { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
         [DisplayName("Target Price")]
-        public decimal Target { get; set; }
+        public decimal? Target { get; set; }
 
         public string Reason { get; set; }
 

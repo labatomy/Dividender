@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dividender.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190701153140_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190715212800_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,6 +76,188 @@ namespace Dividender.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tickers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "",
+                            Symbol = "VYM"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "",
+                            Symbol = "BTI"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "",
+                            Symbol = "ALB"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "",
+                            Symbol = "LAZ"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "",
+                            Symbol = "MMLP"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "",
+                            Symbol = "HAL"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "",
+                            Symbol = "DOW"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "",
+                            Symbol = "CC"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "",
+                            Symbol = "OXY"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "",
+                            Symbol = "AUY"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "",
+                            Symbol = "PFF"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "",
+                            Symbol = "FDP"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "",
+                            Symbol = "PAAS"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "",
+                            Symbol = "HTGC"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "",
+                            Symbol = "ANDE"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "",
+                            Symbol = "BK"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "",
+                            Symbol = "TAP"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "",
+                            Symbol = "BMY"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "",
+                            Symbol = "VST"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Name = "",
+                            Symbol = "AGNC"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Name = "",
+                            Symbol = "IVZ"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Name = "",
+                            Symbol = "BHGE"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Name = "",
+                            Symbol = "AAL"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Name = "",
+                            Symbol = "PRU"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Name = "",
+                            Symbol = "SLB"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Name = "",
+                            Symbol = "MPC"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Name = "",
+                            Symbol = "BECN"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Name = "",
+                            Symbol = "THO"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Name = "",
+                            Symbol = "BTU"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Name = "",
+                            Symbol = "WY"
+                        });
                 });
 
             modelBuilder.Entity("Dividender.Models.Portfolio.Trade", b =>
@@ -91,14 +273,14 @@ namespace Dividender.Data.Migrations
 
                     b.Property<string>("Reason");
 
-                    b.Property<DateTime>("SellDate");
+                    b.Property<DateTime?>("SellDate");
 
-                    b.Property<decimal>("SellPrice")
+                    b.Property<decimal?>("SellPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Shares");
 
-                    b.Property<decimal>("Target")
+                    b.Property<decimal?>("Target")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("TickerId");
@@ -122,6 +304,9 @@ namespace Dividender.Data.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<decimal>("RSI")
+                        .HasColumnType("decimal(18,8)");
+
                     b.Property<int>("TickerId");
 
                     b.HasKey("Id");
@@ -129,6 +314,16 @@ namespace Dividender.Data.Migrations
                     b.HasIndex("TickerId");
 
                     b.ToTable("Watchlists");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Pandas List",
+                            Name = "Panda",
+                            RSI = 0m,
+                            TickerId = 1
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

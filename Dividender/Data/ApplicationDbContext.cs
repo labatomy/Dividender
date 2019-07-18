@@ -59,6 +59,10 @@ namespace Dividender.Data
             builder.Entity<Watchlist>().HasData(
                 new Watchlist { Id = 1, Name = "Panda", Description = "Pandas List", TickerId = 1 }
             );
+
+
+
+
         }
     }
 }

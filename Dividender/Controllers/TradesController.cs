@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Dividender.Data;
 using Dividender.Models.Portfolio;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Dividender.Views
 {
+    [Authorize]
     public class TradesController : Controller
     {
+        
         private readonly ApplicationDbContext _context;
 
         public TradesController(ApplicationDbContext context)
